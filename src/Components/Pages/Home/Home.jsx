@@ -2,11 +2,12 @@ import React from 'react'
 import CarouselBooks from '../../Ui/CarouselBooks/CarouselBooks';
 import { Link } from 'react-router-dom';
 import { IoStar } from "react-icons/io5";
-import { IoStarOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa6";
+import FlashSaleSliderCard from '../../Ui/FlashSaleSliderCard/FlashSaleSliderCard';
+
+// Swiper Slider Flash 
 
 export default function Home() {
-
 
     return (
         <main>
@@ -105,64 +106,156 @@ export default function Home() {
                     <div className="w-full">
                         <CarouselBooks />
                     </div>
-                    <Link to="/books" className='bg-[#D9176C] py-2 px-7 rounded-lg text-white hover:outline hover:outline-[#D9176C] hover:bg-white hover:text-[#D9176C] transition-all duration-200 cursor-pointer'>Shop now</Link>
+                    <Link to="/books" className='bg-[#D9176C] py-3 px-12 rounded-lg text-white hover:outline hover:outline-[#D9176C] hover:bg-white hover:text-[#D9176C] transition-all duration-200 cursor-pointer'>Shop now</Link>
                 </div>
             </section>
 
             {/* Recomended Books Section */}
             <section>
-                <div className='max-w-345 p-15 mx-auto py-30 flex flex-col justify-center items-start text-left gap-10 text-[#3B2F4A]'>
+                <div className='max-w-345  mx-auto py-30 flex flex-col justify-center items-start text-left gap-10 text-[#3B2F4A]'>
                     <h1 className='text-3xl font-bold text-[#222222]'>Recomended For You</h1>
                     <div className='grid grid-cols-2 gap-6 '>
-                        <div className='flex items-center bg-[#FFFFFF] p-10 gap-9.75'>
-                            <img className='w-44' src="/public/images/Swiper/RICHDAD_POORDAD.png" alt="RICHDAD_POORDAD_Book" />
-                            <div >
-                                <h2 className='mt-4 mb-2'>RICHDAD POORDAD</h2>
-                                <h4><span>Author: </span>Robert T. Kiyosanki</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.</p>
-                                <div className=''>
-                                    <span>
-                                        <div className='flex'>
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStarOutline />
-                                            <span>(210 Review)</span>
+                        <div className="flex items-center bg-white p-10 gap-10">
+                            {/* Book Image */}
+                            <img
+                                className="w-44 h-auto object-cover"
+                                src="/public/images/Swiper/RICHDAD_POORDAD.png"
+                                alt="RICHDAD POORDAD Book"
+                            />
+
+                            {/* Book Details */}
+                            <div className="flex-1 flex flex-col gap-3">
+                                {/* Title */}
+                                <h2 className="text-[18px] font-bold text-[#222222]">
+                                    The Design Of Books
+                                </h2>
+
+                                {/* Author */}
+                                <h4 className="text-sm text-[#222222] font-semibold">
+                                    <span className="text-[#22222280]">Author: </span>
+                                    Debbie Berne
+                                </h4>
+
+                                {/* Description */}
+                                <p className="text-[#22222280] text-sm leading-relaxed max-w-md">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
+                                    ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada
+                                    leo. Aliquam in justo varius.
+                                </p>
+
+                                {/* Rating & Price Section */}
+                                <div className="flex items-end justify-between mt-2">
+                                    {/* Rating Info */}
+                                    <div className="flex flex-col gap-1">
+                                        {/* Stars & Reviews */}
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex text-[#EBC305]">
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar className="text-[#22222233]" />
+                                            </div>
+                                            <span className="text-xs text-[#22222280]">(210 Review)</span>
                                         </div>
-                                        <div></div>
-                                    </span>
-                                    <span>$30.00</span>
+
+                                        {/* Rate Number */}
+                                        <p className="text-sm text-[#22222280]">
+                                            Rate: <span className="text-[#222222] font-semibold">4.2</span>
+                                        </p>
+                                    </div>
+
+                                    {/* Price */}
+                                    <p className="text-[26px] font-semibold text-[#222222]">$40.00</p>
                                 </div>
-                                <div className=''>
-                                    <button className='bg-[#D9176C] py-2 px-7 rounded-lg text-white hover:outline hover:outline-[#D9176C] hover:bg-white hover:text-[#D9176C] transition-all duration-200 cursor-pointer' type='button'>Shop now</button>
-                                    <button className='bg-white py-2 px-7 rounded-lg outline outline-[#D9176C] transition-all duration-200 cursor-pointer' type='button'><FaRegHeart className='text-[#D9176C]' /></button>
+
+                                {/* Action Buttons */}
+                                <div className="flex gap-3 mt-4">
+                                    <button 
+                                        className="flex flex-1 justify-center bg-[#D9176C] cursor-pointer text-white py-3 px-8 rounded-lg font-medium hover:bg-white hover:text-[#D9176C] hover:outline hover:outline-2 hover:outline-[#D9176C] transition-all duration-200 flex items-center gap-2"
+                                        type="button"
+                                    >
+                                        Add To Cart
+                                    </button>
+
+                                    <button
+                                        className="bg-white text-[#D9176C] p-3 rounded-lg outline outline-2 cursor-pointer outline-[#D9176C] hover:bg-[#D9176C] hover:text-white transition-all duration-200"
+                                        type="button"
+                                    >
+                                        <FaRegHeart className="text-xl" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div className='flex items-center bg-[#FFFFFF] p-10 gap-9.75'>
-                            <img className='w-44' src="/public/images/Swiper/RICHDAD_POORDAD.png" alt="RICHDAD_POORDAD_Book" />
-                            <div >
-                                <h2 className='mt-4 mb-2'>RICHDAD POORDAD</h2>
-                                <h4><span>Author: </span>Robert T. Kiyosanki</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.</p>
-                                <div className=''>
-                                    <span>
-                                        <div className='flex'>
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStar />
-                                            <IoStarOutline />
-                                            <span>(210 Review)</span>
+                        <div className="flex items-center bg-white p-10 gap-10">
+                            {/* Book Image */}
+                            <img
+                                className="w-44 h-auto object-cover"
+                                src="/public/images/Swiper/TheDesign_of_Books.jpg"
+                                alt="The Design of Book"
+                            />
+
+                            {/* Book Details */}
+                            <div className="flex-1 flex flex-col gap-3">
+                                {/* Title */}
+                                <h2 className="text-[18px] font-bold text-[#222222]">
+                                    The Design Of Books
+                                </h2>
+
+                                {/* Author */}
+                                <h4 className="text-sm text-[#222222] font-semibold">
+                                    <span className="text-[#22222280]">Author: </span>
+                                    Debbie Berne
+                                </h4>
+
+                                {/* Description */}
+                                <p className="text-[#22222280] text-sm leading-relaxed max-w-md">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
+                                    ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada
+                                    leo. Aliquam in justo varius.
+                                </p>
+
+                                {/* Rating & Price Section */}
+                                <div className="flex items-end justify-between mt-2">
+                                    {/* Rating Info */}
+                                    <div className="flex flex-col gap-1">
+                                        {/* Stars & Reviews */}
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex text-[#EBC305]">
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar />
+                                                <IoStar className="text-[#22222233]" />
+                                            </div>
+                                            <span className="text-xs text-[#22222280]">(210 Review)</span>
                                         </div>
-                                        <div></div>
-                                    </span>
-                                    <span>$30.00</span>
+
+                                        {/* Rate Number */}
+                                        <p className="text-sm text-[#22222280]">
+                                            Rate: <span className="text-[#222222] font-semibold">4.2</span>
+                                        </p>
+                                    </div>
+
+                                    {/* Price */}
+                                    <p className="text-[26px] font-semibold text-[#222222]">$40.00</p>
                                 </div>
-                                <div className=''>
-                                    <button className='bg-[#D9176C] py-2 px-7 rounded-lg text-white hover:outline hover:outline-[#D9176C] hover:bg-white hover:text-[#D9176C] transition-all duration-200 cursor-pointer' type='button'>Shop now</button>
-                                    <button className='bg-white py-2 px-7 rounded-lg outline outline-[#D9176C] transition-all duration-200 cursor-pointer' type='button'><FaRegHeart className='text-[#D9176C]' /></button>
+
+                                {/* Action Buttons */}
+                                <div className="flex gap-3 mt-4">
+                                    <button
+                                        className="flex flex-1 justify-center bg-[#D9176C] cursor-pointer text-white py-3 px-8 rounded-lg font-medium hover:bg-white hover:text-[#D9176C] hover:outline hover:outline-2 hover:outline-[#D9176C] transition-all duration-200 flex items-center gap-2"
+                                        type="button"
+                                    >
+                                        Add To Cart
+                                    </button>
+
+                                    <button
+                                        className="bg-white text-[#D9176C] p-3 rounded-lg outline outline-2 cursor-pointer outline-[#D9176C] hover:bg-[#D9176C] hover:text-white transition-all duration-200"
+                                        type="button"
+                                    >
+                                        <FaRegHeart className="text-xl" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +263,66 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Flash Sale */}
+            <section className="max-w-390  border-t border-[#E5E5E5] mx-auto">
+                <div className=" py-30  ">
+                    {/* Header Section */}
+                    <div className="flex items-center justify-between mb-10 max-w-345 mx-auto">
+                        <div>
+                            <h1 className="text-[26px] font-bold text-[#222222] mb-2">
+                                Flash Sale
+                            </h1>
+                            <p className="text-[#22222280] text-sm max-w-xl">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est.
+                            </p>
+                        </div>
 
+                        {/* Countdown Timer */}
+                        <div className="relative">
+                            <svg className="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
+                                {/* Background Circle */}
+                                <circle
+                                    cx="60"
+                                    cy="60"
+                                    r="54"
+                                    fill="none"
+                                    stroke="#E5E5E5"
+                                    strokeWidth="4"
+                                />
+                                {/* Progress Circle */}
+                                <circle
+                                    cx="60"
+                                    cy="60"
+                                    r="54"
+                                    fill="none"
+                                    stroke="#D9176C"
+                                    strokeWidth="4"
+                                    strokeDasharray="339.292"
+                                    strokeDashoffset="84.823"
+                                    strokeLinecap="round"
+                                />
+                                {/* Small Circle at the end */}
+                                <circle
+                                    cx="60"
+                                    cy="6"
+                                    r="4"
+                                    fill="#D9176C"
+                                />
+                            </svg>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-xl font-bold text-[#222222]">30:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/* Flash Sale Slider */}
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-2 gap-6 max-w-345 mx-auto">
+                        <FlashSaleSliderCard/>
+                    </div>
+                </div>
+            </section>
 
         </main >
     )

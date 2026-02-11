@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './Navbar.module.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useState, useEffect } from "react"
 
 
@@ -23,7 +23,7 @@ export default function Navbar() {
 
     return (
         <header>
-            <nav className={`${isScrolled ? "backdrop-blur-md bg-black/40": "bg-[#FFFFFF33]"} fixed w-full z-20 top-0 left-0 transition-all duration-300`}>
+            <nav className={`${isScrolled ? "backdrop-blur-md bg-black/40" : "bg-[#FFFFFF33]"} fixed w-full z-20 top-0 left-0 transition-all duration-300`}>
                 <div className="max-w-345 flex flex-wrap items-center justify-between mx-auto p-6 ">
                     <div className="items-center justify-between w-full md:flex md:w-auto md:order-1 md:gap-6">
                         <Link to="/" className="flex items-center space-x-3">
@@ -37,25 +37,46 @@ export default function Navbar() {
                         </Link>
                         <span className='block h-8 border-r border-[#FFFFFF4D]'></span>
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 text-white border border-gray-200 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-
                             <li>
-                                <Link to="/" className="block py-2 px-3 bg-[#EAA451] rounded md:bg-transparent md:text-[#EAA451] md:p-0">
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "block py-2 px-3 rounded md:p-0 text-[#EAA451]"
+                                            : "block py-2 px-3 rounded md:p-0 hover:text-[#EAA451]"
+                                    }
+                                >
                                     Home
-                                </Link>
+                                </NavLink>
                             </li>
 
                             <li>
-                                <Link to="books" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#EAA451] md:p-0">
+                                <NavLink
+                                    to="books"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "block py-2 px-3 rounded md:p-0 text-[#EAA451]"
+                                            : "block py-2 px-3 rounded md:p-0 hover:text-[#EAA451]"
+                                    }
+                                >
                                     Books
-                                </Link>
+                                </NavLink>
                             </li>
 
                             <li>
-                                <Link to="aboutus" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#EAA451] md:p-0">
+                                <NavLink
+                                    to="aboutus"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "block py-2 px-3 rounded md:p-0 text-[#EAA451]"
+                                            : "block py-2 px-3 rounded md:p-0 hover:text-[#EAA451]"
+                                    }
+                                >
                                     About us
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
+
                     </div>
 
                     <div className="flex items-center md:order-2 space-x-3">
